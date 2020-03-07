@@ -7,6 +7,7 @@
 
                     //This is for the video id
                     var url = tabs[0].url.split("v=")[1].substring(0, 11);
+                    //this is for the word to be searched
                     var word = document.getElementById('word').value;
 
             });
