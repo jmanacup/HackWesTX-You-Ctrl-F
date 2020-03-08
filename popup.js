@@ -14,7 +14,8 @@ counter = 1;
                     let entirePath = "https://www.youtube.com/api/timedtext?lang=en&v=" + String(url);
 
                     //to download the xml file
-                
+
+                    
                     chrome.downloads.download({
                         url: String(entirePath),
                         filename: String(word) + counter + ".xml",

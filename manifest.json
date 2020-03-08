@@ -18,6 +18,7 @@
     ],
     "browser_action":{
         "default_popup":"popup.html",
-        "default_title":"Test OwO"
+        "newtab": "newtab.html",
+        "default_title":"You+Ctrl+F"
     }
 }
