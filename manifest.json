@@ -4,7 +4,10 @@
     "manifest_version": 2,
     "permissions": [
         "tabs",
-        "activeTab"
+        "activeTab",
+        "https://www.youtube.com/",
+        "http://www.youtube.com/",
+        "downloads"
     ],
 
         "content_scripts": [

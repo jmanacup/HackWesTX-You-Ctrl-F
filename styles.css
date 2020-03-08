@@ -8,7 +8,7 @@ button{
     width: 100px;
     height: 50px;
 }
-input{
+#word{
     width: 200px;
     border: 0;
     outline: 0;
@@ -20,4 +20,16 @@ input{
 h2 {
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
+}
+#filebtn {
+    text-align: center;
+    padding-bottom: 20px;
+}
+a {
+    font-size: 1.5em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#resultWords{
+    font-size: 1.5em;
+    font-family: 'Source Sans Pro', sans-serif;
 }
