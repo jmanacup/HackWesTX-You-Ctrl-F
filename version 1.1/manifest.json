@@ -1,0 +1,24 @@
+{
+    "name": "test1",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "https://www.youtube.com/",
+        "http://www.youtube.com/",
+        "downloads"
+    ],
+
+        "content_scripts": [
+        {
+            "matches":["<all_urls>"],
+            "js": ["content.js"]        
+        }   
+    ],
+    "browser_action":{
+        "default_popup":"popup.html",
+        "newtab": "newtab.html",
+        "default_title":"You+Ctrl+F"
+    }
+}
