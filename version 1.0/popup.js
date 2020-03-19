@@ -14,26 +14,22 @@ counter = 1;
                     let entirePath = "https://www.youtube.com/api/timedtext?lang=en&v=" + String(url);
 
                     //to download the xml file
-
+/*
                     chrome.downloads.download({
                         url: String(entirePath),
                         filename: String(word) + counter + ".xml",
                       });
 
                     counter++;
+*/
+  //                  extractXMLData(word, originalUrl);
+     
 
-                    extractXMLData(word, originalUrl);
-
-                    /*
-                    var requestOptions = {
-                        method: 'GET',
-                        redirect: 'follow'
-                    };
-                    
                     fetch(entirePath)
-                        .then(response => chrome.tabs.sendMessage(tabs[0].id,response.text()))
-                        .then(result => console.log(result))
-                      */  
+                        .then(response => response.text())
+                        .then(result => alert(result))
+                        .catch(error => alert(error));
+                
                 });
     }
   
