@@ -14,24 +14,16 @@ counter = 1;
                     let entirePath = "https://www.youtube.com/api/timedtext?lang=en&v=" + String(url);
 
                     //to download the xml file
-/*
                     chrome.downloads.download({
                         url: String(entirePath),
                         filename: String(word) + counter + ".xml",
                       });
 
                     counter++;
-*/
-  //                  extractXMLData(word, originalUrl);
-     
 
-                    fetch(entirePath)
-                        .then(response => response.text())
-                        .then(result => alert(result))
-                        .catch(error => alert(error));
-                
-                });
-    }
+                    extractXMLData(word, originalUrl);
+    });
+}
   
 function extractXMLData(word, originalUrl){
 
