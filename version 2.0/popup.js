@@ -1,6 +1,7 @@
     
 var reset = false;
 
+//this function goes through when the button is clicked
 document.querySelector('button').addEventListener('click', onclick, false)
     function onclick (e){
         console.log(e);
@@ -20,8 +21,8 @@ document.querySelector('button').addEventListener('click', onclick, false)
                 fetch(entirePath)
                     .then(response => response.text())
                     .then(result => {
-                        timedText = extractXMLData(result);
-                        showData(timedText, word, originalUrl);
+                        timedText = extractXMLData(result); //puts the array in timedText
+                        showData(timedText, word, originalUrl); //calls the function that shows the text on the pop-up window
                         reset = true;
                     })
                     .catch(error => alert(error));
@@ -29,6 +30,8 @@ document.querySelector('button').addEventListener('click', onclick, false)
             });
 }
   
+
+//function that puts the the phrase and time in an array
 function extractXMLData(result){
 
     var i=0,number=0,text,j=0,k=0;
@@ -80,6 +83,7 @@ function extractXMLData(result){
 
 }
 
+//function that shows the timedText in the popup window
 function showData(timedText, word, originalUrl){
 
     if(reset){ //to clear the result if user search for another one
@@ -100,18 +104,21 @@ function showData(timedText, word, originalUrl){
     }
 
 
-    var isThere = false;
+    var isThere = false; //flag that checks if the word is present in the timedText
     var l;
     
+    //header
     var header = document.createElement('h2');
     header.innerHTML = "HERE ARE THE RESULTS FOR THE WORD "  + word.toUpperCase();
     header.className = "headerTitle";
     document.getElementsByTagName('body')[0].appendChild(header);
 
+    //loops that goes through the timedText array to check if the word is present
     for(l = 0; l < timedText[0].length; l++){
     if(typeof timedText[1][l] !== "undefined"){
-        word = word.toLowerCase();
+        word = word.toLowerCase(); //handles all types (lowercase or uppercase) of input word
         var str_pos = timedText[1][l].search(word);
+
         if(str_pos > -1){
 
         //time stamp
@@ -122,6 +129,7 @@ function showData(timedText, word, originalUrl){
 
         min = min.toFixed();
 
+        //link for the timestamp
         var alink = document.createElement('a');
         alink.innerHTML = min + ':' + (sec < 10 ? '0' : '') + sec; 
         alink.title = min + ':' + sec;
@@ -131,7 +139,7 @@ function showData(timedText, word, originalUrl){
             
         isThere = true;
 
-        //text
+        //phrase of the timedtext
         var text = timedText[1][l]; //<<< The text you want to display
         var createText = document.createElement('div'); //<<< create a Element
         createText.innerHTML = text; // <<< append content to the element
@@ -140,10 +148,8 @@ function showData(timedText, word, originalUrl){
         }
     }
     }
+    //if the word is not in the timedText array
     if(!isThere)
         alert("There is no caption for the word " + word);
 
 }
-
-        
-    
