@@ -1,13 +1,12 @@
 {
-    "name": "test1",
-    "version": "1.0",
+    "name": "YOU + CTRL + F",
+    "version": "2.0",
     "manifest_version": 2,
     "permissions": [
         "tabs",
         "activeTab",
         "https://www.youtube.com/",
-        "http://www.youtube.com/",
-        "downloads"
+        "http://www.youtube.com/"
     ],
 
         "content_scripts": [
