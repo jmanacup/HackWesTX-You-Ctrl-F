@@ -10,7 +10,7 @@ document.querySelector('button').addEventListener('click', onclick, false)
 
                 //This is for the video id
                 var url = tabs[0].url.split("v=")[1].substring(0, 11);
-                var originalUrl = tabs[0].url;
+                var originalUrl = "https://www.youtube.com/watch?v=" + url;
                 //this is for the word to be searched
                 var word = document.getElementById('word').value;
 
@@ -24,6 +24,7 @@ document.querySelector('button').addEventListener('click', onclick, false)
                         timedText = extractXMLData(result); //puts the array in timedText
                         showData(timedText, word, originalUrl); //calls the function that shows the text on the pop-up window
                         reset = true;
+                        clickData();
                     })
                     .catch(error => alert(error));
 
@@ -127,13 +128,13 @@ function showData(timedText, word, originalUrl){
         var min = temp / 60;
         var sec = temp % 60;
 
-        min = min.toFixed();
+        min = Math.floor(min);
 
         //link for the timestamp
         var alink = document.createElement('a');
         alink.innerHTML = min + ':' + (sec < 10 ? '0' : '') + sec; 
         alink.title = min + ':' + sec;
-        alink.href = originalUrl + "&t=" + timedText[0][l];
+        alink.href = originalUrl + "&t=" + temp;
         alink.id = "timeLink";
         document.getElementsByTagName('body')[0].appendChild(alink);
             
@@ -152,4 +153,19 @@ function showData(timedText, word, originalUrl){
     if(!isThere)
         alert("There is no caption for the word " + word);
 
+}
+
+function clickData(){
+
+    var elements = document.getElementsByTagName('a');
+
+    var i = 0;
+
+    for(i; i < elements.length; i++){
+
+        let timeLink = elements[i].href;
+        elements[i].onclick = function () {
+            chrome.tabs.update(null, {url: timeLink});
+        }
+    }
 }
