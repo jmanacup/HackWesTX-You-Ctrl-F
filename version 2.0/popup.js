@@ -155,6 +155,7 @@ function showData(timedText, word, originalUrl){
 
 }
 
+//function that makes the page reload when links are pressed in the popup window
 function clickData(){
 
     var elements = document.getElementsByTagName('a');
