@@ -1,0 +1,55 @@
+body {
+
+    width: 500px;
+    height: 150px;
+    text-align: center;
+    background-color: #3b6978;
+    color: #ffffff;
+}
+button{
+    width: 100px;
+    height: 50px;
+}
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+}
+a {
+    font-size: 2em;
+    color:#FFDF00;
+}
+/* IDs CSS*/
+#word{
+    width: 300px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    font-size:3.5em;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+#filebtn {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#resultWords{
+    font-size: 1.7em;
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+#title{
+    font-size: 4em;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+/* Classes CSS */
+
+.headerTitle {
+    font-size: 2em;
+}

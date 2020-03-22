@@ -15,9 +15,11 @@ document.querySelector('button').addEventListener('click', onclick, false)
                 var word = document.getElementById('word').value;
 
                 let entirePath = "https://www.youtube.com/api/timedtext?lang=en&v=" + String(url);
-
+                
                 //fetch the XML data
                 let timedText;
+
+                //interprets the XML file and output it in the popup window
                 fetch(entirePath)
                     .then(response => response.text())
                     .then(result => {
@@ -27,6 +29,7 @@ document.querySelector('button').addEventListener('click', onclick, false)
                         clickData();
                     })
                     .catch(error => alert(error));
+                
 
             });
 }
