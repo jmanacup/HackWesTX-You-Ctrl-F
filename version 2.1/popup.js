@@ -1,6 +1,41 @@
     
 var reset = false;
 
+
+let originalUrl, url, entirePathJson;
+
+getUrl();
+
+//function that checks the url beforehand if there are captions available
+function getUrl(){
+
+    chrome.tabs.query({currentWindow: true, active: true},
+        function(tabs){
+    
+            //This is for the video id
+            url = tabs[0].url.split("v=")[1].substring(0, 11);
+            originalUrl = "https://www.youtube.com/watch?v=" + url;
+
+            entirePathJson = "https://www.youtube.com/api/timedtext?lang=en&fmt=json3&v=" + String(url);
+
+            fetch(entirePathJson)
+                .then(response => response.text())
+                .then(result => {
+                    if(result.length == 0){
+                        alert("There is no owner-provided caption for this video yet."); 
+                        
+                        //disable the text field and the button
+                        document.getElementById("word").disabled = true;
+                        document.getElementById("btn").disabled = true;
+                    }
+                })
+                .catch(error => alert(error));
+
+        });
+
+}
+
+
 //this function goes through when the button is clicked
 document.querySelector('button').addEventListener('click', onclick, false)
     function onclick (e){
@@ -8,13 +43,8 @@ document.querySelector('button').addEventListener('click', onclick, false)
         chrome.tabs.query({currentWindow: true, active: true},
             function(tabs){
 
-                //This is for the video id
-                var url = tabs[0].url.split("v=")[1].substring(0, 11);
-                var originalUrl = "https://www.youtube.com/watch?v=" + url;
                 //this is for the word to be searched
                 var word = document.getElementById('word').value;
-
-                let entirePathJson = "https://www.youtube.com/api/timedtext?lang=en&fmt=json3&v=" + String(url);
 
                 //interprets the JSON file and output it in the popup window
                 fetch(entirePathJson)
