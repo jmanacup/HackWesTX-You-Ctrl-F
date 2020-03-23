@@ -21,6 +21,7 @@ a {
     font-size: 2em;
     color:#FFDF00;
 }
+
 /* IDs CSS*/
 #word{
     width: 300px;
@@ -52,4 +53,15 @@ a {
 
 .headerTitle {
     font-size: 2em;
+}
+
+button {
+
+    font-family: 'Nanum Gothic Coding', monospace;
+    background-color: #ffffff;
+    border: none;
+    color: black;
+    text-align: center;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
 }

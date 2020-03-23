@@ -13,7 +13,9 @@ function getUrl(){
         function(tabs){
     
             //This is for the video id
-            url = tabs[0].url.split("v=")[1].substring(0, 11);
+            initialUrl = tabs[0].url;
+
+            url = initialUrl.split("v=")[1].substring(0, 11);
             originalUrl = "https://www.youtube.com/watch?v=" + url;
 
             entirePathJson = "https://www.youtube.com/api/timedtext?lang=en&fmt=json3&v=" + String(url);
@@ -30,7 +32,7 @@ function getUrl(){
                     }
                 })
                 .catch(error => alert(error));
-
+                
         });
 
 }
