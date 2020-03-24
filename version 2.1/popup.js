@@ -94,8 +94,7 @@ function extractJSONdata(jsonData, word, originalUrl){
         //this check to see if the word is not blank
         if(word){
             word = word.toLowerCase(); //handles all types (lowercase or uppercase) of input word
-
-            var captionText = jsonData.events[i].segs[0].utf8;
+            var captionText = jsonData.events[i].segs[0].utf8.toLowerCase();
             var captionTime = Math.trunc(jsonData.events[i].tStartMs / 1000); // milliseconds --> seconds
 
             var str_pos = captionText.search(word); //searches throughout the utf8 portion of the json data file
