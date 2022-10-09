@@ -5,5 +5,8 @@ Carlos Cuartas
 Loc Luu  
 John Manacup  
 
+## Deprecated
 
-A simple Youtube caption time finder chrome extension  
+As of `10/09/2022`, Youtube takes down the free api `timedtext` call, which now requires Youtube `api` key.
+
+A simple Youtube caption time finder chrome extension 
